@@ -1,6 +1,6 @@
 <?php
 function wp_menu_route() {
-    $menuLists = get_registered_nav_menus(); // Get nav locations set in theme, usually functions.php)
+    $menuLists = get_terms( 'nav_menu', array( 'hide_empty' => true ) ); // Get nav locations set in theme, usually functions.php)
     return $menuLists;
 }
 
