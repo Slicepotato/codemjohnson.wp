@@ -32,7 +32,7 @@ function create_ACF_meta_in_REST() {
     array_push($post_types, $extra_postypes_to_include);
 
     foreach ($post_types as $post_type) {
-        register_rest_field( $post_type, 'ACF', [
+        register_rest_field( $post_type, 'acf', [
             'get_callback'    => 'expose_ACF_fields',
             'schema'          => null,
        ]
