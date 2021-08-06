@@ -49,4 +49,23 @@ function expose_ACF_fields( $object ) {
 add_action( 'rest_api_init', 'create_ACF_meta_in_REST' );
 
 add_theme_support( 'post-thumbnails' ); 
+
+add_action( 'rest_api_init', 'add_thumbnail_to_JSON' );
+function add_thumbnail_to_JSON() {
+    //Add featured image
+    register_rest_field( 'post',
+    'featured_image_src', //NAME OF THE NEW FIELD TO BE ADDED - you can call this anything
+    array(
+        'get_callback'    => 'get_image_src',
+        'update_callback' => null,
+        'schema'          => null,
+         )
+    );
+}
+
+function get_image_src( $object, $field_name, $request ) {
+    $size = 'large'; // Change this to the size you want | 'medium' / 'large'
+    $feat_img_array = wp_get_attachment_image_src($object['featured_media'], $size, true);
+    return $feat_img_array[0];
+}
 ?>
