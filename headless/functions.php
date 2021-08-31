@@ -53,7 +53,7 @@ add_theme_support( 'post-thumbnails' );
 add_action( 'rest_api_init', 'add_post_thumbnail_to_JSON' );
 function add_post_thumbnail_to_JSON() {
     //Add featured image
-    register_rest_field( 'post'
+    register_rest_field( 'post',
     'featured_image_src', //NAME OF THE NEW FIELD TO BE ADDED - you can call this anything
     array(
         'get_callback'    => 'get_image_src',
@@ -65,7 +65,7 @@ function add_post_thumbnail_to_JSON() {
 add_action( 'rest_api_init', 'add_code_example_thumbnail_to_JSON' );
 function add_code_example_thumbnail_to_JSON() {
     //Add featured image
-    register_rest_field( 'code_example'
+    register_rest_field( 'code_example',
     'featured_image_src', //NAME OF THE NEW FIELD TO BE ADDED - you can call this anything
     array(
         'get_callback'    => 'get_image_src',
