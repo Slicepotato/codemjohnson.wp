@@ -80,4 +80,6 @@ function get_image_src( $object, $field_name, $request ) {
     $feat_img_array = wp_get_attachment_image_src($object['featured_media'], $size, true);
     return $feat_img_array[0];
 }
+
+add_filter( 'big_image_size_threshold', '__return_false' );
 ?>
